@@ -1,0 +1,233 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+/* Reset some default browser styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Color palette based on #782986 */
+:root {
+    --primary-color: #782986; /* Deep Purple */
+    --secondary-color: #d95b85; /* Soft Pink */
+    --header-background-color: #d95b85;
+    --main-section-background-color: #f6f6f6;
+    --text-color: #333; /* Dark Gray */
+    --header-text-color: #f1f1f1; /* Off-White for Header Text */
+    --banner-background-color: #e9dff7; /* Light Lavender for Banner */
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header styles */
+header {
+    background-color: var( --header-background-color);
+    color: var(--header-text-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+header h1 {
+    color: var(--header-text-color);
+    padding-bottom: 1rem;
+
+}
+
+header p {
+    color: var(--header-text-color);
+}
+    
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.card-image {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for the image container */
+    overflow: hidden; /* Ensures any overflow is hidden */
+    border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the image inside the container */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+    border-radius: 8px 8px 0 0; /* Same rounding as container for a seamless look */
+}
+
+.hidden-section {
+    display: none; /* Hide the sections by default */
+    padding: 2rem;
+    margin: 1rem 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.hidden-section {
+    display: none; /* Hidden by default */
+    position: relative; /* Allows positioning of carousel controls */
+}
+
+/* Grid container in the section */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible columns */
+    gap: 1.5rem; /* Adjust spacing between cards */
+    padding: 1rem;
+}
+
+/* Grid card styles */
+.grid-card {
+    perspective: 1000px; /* This gives the 3D effect */
+    width: 100%; /* Make sure the card takes the full width of the grid cell */
+}
+
+/* Inner part of the card that will flip */
+.grid-card-inner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+/* When hovering, flip the card */
+.grid-card:hover .grid-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front of the card */
+.grid-card-front, .grid-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back of the card when flipped */
+    border-radius: 8px;
+}
+
+/* Style for the front image */
+.grid-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Back of the card */
+.grid-card-back {
+    background-color: var(--secondary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    padding: 1rem;
+}
+
+/* Games Section Header */
+.games-section header {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 2rem; /* Adds space from the previous section */
+}
+
+.games-section header h1 {
+    font-size: 2rem;
+    color: var(--header-text-color);
+    margin-bottom: 0.5rem;
+}
+
+.games-section header p {
+    color: var(--header-text-color);
+}
+
+
+/* Memory Game Layout */
+.memory-game {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+  }
+  
+  .memory-card {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  }
+  
+  .memory-card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
+  
+  .memory-card.flip {
+    transform: rotateY(180deg);
+  }
+  
+  .front-face,
+  .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #1C7CCC;
+    backface-visibility: hidden;
+  }
+  
+  .front-face {
+    transform: rotateY(180deg);
+  }
+
