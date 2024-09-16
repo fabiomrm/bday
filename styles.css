@@ -1,233 +1,626 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+/* styles.css */
 
-/* Reset some default browser styles */
-body, h1, p {
-    margin: 0;
-    padding: 0;
-}
-
-/* Color palette based on #782986 */
-:root {
-    --primary-color: #782986; /* Deep Purple */
-    --secondary-color: #d95b85; /* Soft Pink */
-    --header-background-color: #d95b85;
-    --main-section-background-color: #f6f6f6;
-    --text-color: #333; /* Dark Gray */
-    --header-text-color: #f1f1f1; /* Off-White for Header Text */
-    --banner-background-color: #e9dff7; /* Light Lavender for Banner */
-}
-
-/* Global styles */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    background-color: #2c3e50; /* Blackish background */
+    color: #fff; /* Whitish text color */
+    overflow-x: hidden;
 }
 
-/* Header styles */
-header {
-    background-color: var( --header-background-color);
-    color: var(--header-text-color);
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.fixed-elements {
+  position: fixed;
+  top: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional background for better visibility */
+}
+
+.timer, .correct-counter {
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional background color */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.left-panel {
+    width: 75%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto-fit columns with min-width */
+    grid-template-rows: auto;
+    gap: 10px; /* Space between images */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent scrolling */
+    align-content: center; /* Center the content vertically */
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Maintain aspect ratio 1:1 */
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from overflowing */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.image {
+    position: absolute;
     top: 0;
     left: 0;
-    height: 10rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover grid cell */
+    transition: transform 0.3s, opacity 0.6s;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    color: #fff;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.6s;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    backface-visibility: hidden;
 }
 
-header h1 {
-    color: var(--header-text-color);
-    padding-bottom: 1rem;
-
+.image-wrapper.flip .image {
+    transform: rotateY(180deg); /* Flip the image */
 }
 
-header p {
-    color: var(--header-text-color);
-}
-    
-main {
-    display: flex;
-    justify-content: space-around;
+.image-wrapper.flip .image-overlay {
+    opacity: 1; /* Show the overlay text */
 }
 
-.card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.image-wrapper:hover {
+    transform: scale(1.05); /* Slightly enlarge image */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
     cursor: pointer;
 }
 
-.card-image {
-    width: 100%; /* Full width of the card */
-    height: 200px; /* Fixed height for the image container */
-    overflow: hidden; /* Ensures any overflow is hidden */
-    border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+.right-panel {
+    width: 25%;
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centers the image inside the container */
+    justify-content: center;
 }
 
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
-    border-radius: 8px 8px 0 0; /* Same rounding as container for a seamless look */
+.action-button {
+    background-color: #9b59b6; /* Purple color */
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.hidden-section {
-    display: none; /* Hide the sections by default */
-    padding: 2rem;
-    margin: 1rem 0;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.action-button:hover {
+    background-color: #8e44ad; /* Darker purple on hover */
+    cursor: pointer;
 }
 
-.hidden-section {
-    display: none; /* Hidden by default */
-    position: relative; /* Allows positioning of carousel controls */
+.section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c3e50; /* Darker section background for contrast */
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
 }
 
-/* Grid container in the section */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible columns */
-    gap: 1.5rem; /* Adjust spacing between cards */
-    padding: 1rem;
+@media (max-width: 768px) {
+    .left-panel, .right-panel {
+        width: 100%;
+        height: 50vh; /* Stack panels on smaller screens */
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    }
 }
 
-/* Grid card styles */
-.grid-card {
-    perspective: 1000px; /* This gives the 3D effect */
-    width: 100%; /* Make sure the card takes the full width of the grid cell */
+.right-panel {
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Blackish background */
 }
 
-/* Inner part of the card that will flip */
-.grid-card-inner {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-}
-
-/* When hovering, flip the card */
-.grid-card:hover .grid-card-inner {
-    transform: rotateY(180deg);
-}
-
-/* Front of the card */
-.grid-card-front, .grid-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Hides the back of the card when flipped */
-    border-radius: 8px;
-}
-
-/* Style for the front image */
-.grid-card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Back of the card */
-.grid-card-back {
-    background-color: var(--secondary-color);
-    color: white;
+.text-and-button {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    transform: rotateY(180deg);
-    padding: 1rem;
+    justify-content: center;
+    height: 100%;
+    width: 80%; /* Adjust as needed */
 }
 
-/* Games Section Header */
-.games-section header {
-    background-color: var(--header-background-color);
-    color: var(--header-text-color);
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.right-panel h1 {
+    font-size: 36px;
+    margin: 0;
     text-align: center;
-    margin-top: 2rem; /* Adds space from the previous section */
 }
 
-.games-section header h1 {
-    font-size: 2rem;
-    color: var(--header-text-color);
-    margin-bottom: 0.5rem;
+/* styles.css */
+
+/* Add the existing styles here */
+
+.right-panel .highlight {
+    color: #9b59b6; /* Purple color for "Pessoa" */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove default underline */
+    position: relative; /* Position for the pseudo-element */
+    transition: font-size 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    display: inline-block; /* Allows transform and transition to work */
 }
 
-.games-section header p {
-    color: var(--header-text-color);
+.right-panel .highlight::after {
+    content: ''; /* Empty content for the pseudo-element */
+    display: block;
+    position: absolute;
+    bottom: -2px; /* Position the underline just below the text */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background-color: #fff; /* White underline color */
+    transform: scaleX(0); /* Start with no visible underline */
+    transform-origin: left; /* Transform the underline from the left */
+    transition: transform 0.3s ease; /* Smooth underline expansion */
 }
 
+.right-panel .highlight:hover {
+    font-size: 40px; /* Increase font size on hover */
+    transform: scale(1.1); /* Slightly enlarge text */
+}
+
+.right-panel .highlight:hover::after {
+    transform: scaleX(1); /* Expand the underline from left to right */
+}
+
+
+.action-button {
+    background-color: #9b59b6; /* Purple color */
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #8e44ad; /* Darker purple on hover */
+}
+
+
+/* GAMES SECTION */
+/* Keyframes for the typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* Keyframes for the blinking cursor (optional) */
+  @keyframes blink {
+    0% { border-right: 2px solid transparent; }
+    50% { border-right: 2px solid white; }
+    100% { border-right: 2px solid transparent; }
+  }
+  
+.typing-effect {
+    overflow: hidden; /* Ensures text does not overflow during animation */
+    white-space: nowrap; /* Keeps text on a single line */
+    border-right: 2px solid white; /* Optional cursor effect */
+    font-family: monospace; /* Optional font style */
+    font-size: 24px; /* Adjust as needed */
+    width: 0; /* Start with width 0 for typing effect */
+    animation: typing 4s steps(40, end) 1s 1 normal both; /* Adjust timing and steps as needed */
+  }
+  
+#games, #games-before, #congratulations-previous {
+    display: flex;
+    flex-direction: column;
+}
+
+#games-container {
+  background-color: #2c3e50;
+}
+
+
+@keyframes slide {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Keyframes for the blinking color effect */
+@keyframes blinkColors {
+    0% { color: red; }
+    20% { color: orange; }
+    40% { color: yellow; }
+    60% { color: green; }
+    80% { color: blue; }
+    100% { color: purple; }
+  }
+
+/* Keyframes for the appearing/disappearing effect */
+@keyframes popInOut {
+    0%, 100% {
+      opacity: 0; /* Fully transparent */
+      transform: scale(0.5); /* Smaller size */
+    }
+    50% {
+      opacity: 1; /* Fully visible */
+      transform: scale(1); /* Normal size */
+    }
+  }
+
+#congratulations {
+    position: relative;
+    text-align: center; /* Center the text */
+}
+  
+.pop-out-image img {
+    width: 150px; /* Set smaller size */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Free positioning inside the section */
+    animation: popInOut 5s
+}
+
+#congratulations .congratulations-slide {
+font-size: 50px;
+text-align: center;
+white-space: nowrap; /* Prevents text from wrapping to a new line */
+animation: 
+    slide 5s linear infinite, /* Sliding across the page */
+    blinkColors 1s linear infinite; /* Blinking through colors */
+}
+
+/* Keyframes for rotating around the center */
+@keyframes rotateAroundCenter {
+    0% {
+      transform: rotate(0deg); /* Starting rotation */
+    }
+    100% {
+      transform: rotate(360deg); /* Full rotation */
+    }
+  }
+  
+/* Style for the rotating images */
+.spin-image {
+position: absolute;
+transform-origin: center; /* Rotate around its center */
+}
+
+.spin-image img {
+width: 150px; /* Set image size */
+height: auto; /* Maintain aspect ratio */
+animation: rotateAroundCenter 5s linear infinite; /* Rotate the image */
+}
+
+.hidden {
+  display: none; /* Hide elements with this class */
+}
+
+
+/* Countdown styles */
+.countdown {
+  font-size: 3rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  /* Add more styles as needed */
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.clickable {
+  color: inherit; /* Inherit color from parent element */
+  text-decoration: none; /* Remove underline */
+}
+
+.clickable:hover {
+  color: #9b59b6; /* Change color to purple on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+
+
+
+/*GAME SECTION*/
+#games-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #2c3e50; /* Background color for the games container */
+}
 
 /* Memory Game Layout */
 .memory-game {
-    width: 640px;
-    height: 640px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    perspective: 1000px;
-  }
-  
-  .memory-card {
-    width: calc(25% - 10px);
-    height: calc(33.333% - 10px);
-    margin: 5px;
-    position: relative;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform .5s;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-  }
-  
-  .memory-card:active {
-    transform: scale(0.97);
-    transition: transform .2s;
-  }
-  
-  .memory-card.flip {
-    transform: rotateY(180deg);
-  }
-  
-  .front-face,
-  .back-face {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    position: absolute;
-    border-radius: 5px;
-    background: #1C7CCC;
-    backface-visibility: hidden;
-  }
-  
-  .front-face {
-    transform: rotateY(180deg);
-  }
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px; /* Ensures a proper 3D perspective */
+}
 
+.counter-box {
+ 
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  transform-origin: center; /* Fix for moving the card */
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+.front-face {
+  transform: rotateY(180deg); /* Flip front-face so it's initially hidden */
+}
+
+.back-face {
+  background-color: #1C7CCC; /* Style for the back of the card */
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  z-index: 1;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #9b59b6;
+  padding: 20px;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup .message {
+  font-size: 1.5rem;
+}
+
+.popup button {
+  background-color: #9b59b6;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #8e44ad;
+}
+
+#completion-message {
+  display: none;
+  border: 2px solid #9b59b6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+#completion-message .message {
+  font-size: 1.5rem;
+}
+
+#completion-message button {
+  background-color: #9b59b6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#completion-message button:hover {
+  background-color: #8e44ad;
+}
+
+
+/* Typing speed game section */
+#typing-speed-game {
+  background-color: #2c3e50; /* Light background color for a clean look */
+  text-align: center;
+  margin-top: 40px; /* Space above the section */
+  width: 100%; /* Full width to align with container */
+}
+
+/* Heading in the typing speed game section */
+#typing-speed-game h2 {
+  font-size: 1.8em; /* Larger font size for emphasis */
+  color: #000; /* Dark text color for contrast */
+  margin: 0; /* Remove default margin */
+}
+
+
+/* TYPING SPEED */
+/* Typing speed game section */
+#typing-speed-game {
+  padding: 30px;
+  background-color: #eee;
+  border-top: 3px solid #9b59b6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+#typing-speed-game p {
+  color: #000;
+}
+
+/* Container for typing elements */
+.typing-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Text to be typed */
+#text-to-type {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Textarea for user input */
+#user-input {
+  width: 100%;
+  height: 100px;
+  font-size: 1em;
+  padding: 10px;
+  border: 2px solid #9b59b6;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+/* Typing information */
+#typing-info {
+  font-size: 1.1em;
+  color: #333;
+}
+
+#typing-info p {
+  margin: 10px 0;
+}
+
+/* Button for next text */
+#next-text {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #9b59b6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+#next-text:hover {
+  background-color: #8e44ad; /* Darker purple on hover */
+}
+
+
+/*ANIMAL CLICK*/
+#animal-click-game {
+  text-align: center;
+  margin: 20px;
+}
+
+#game-container {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+.animal-image {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+}
+
+#score-board {
+  margin-top: 20px;
+}

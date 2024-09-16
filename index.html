@@ -3,201 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Blog</title>
+    <title>Landing Page</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <header id="header">
-        <h1>Título do blog</h1>
-        <p>Content for the main section goes here.</p>
-    </header>
-    <main id="main">
-        <div class="card" data-target="#section1">
-            <div class="card-image">
-                <img src="paisagem-1.jpg" alt="">
+    <div class="container" id="landing-page">
+        <div class="left-panel">
+            <div class="image-grid">
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-orange.jpeg" alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay">Text for Image 1</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-2.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay">Text for Image 1</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-1.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay">Text for Image 1</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-3.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-4.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-5.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/carnaval/carnaval-1.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/carnaval/carnaval-2.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/carnaval/carnaval-3.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-1.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-2.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-4.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-5.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-6.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-7.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/brasilia/brasilia-1.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/brasilia/brasilia-3.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/portugal/portugal-1.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/portugal/portugal-2.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/portugal/portugal-3.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-1.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-2.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-3.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-4.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-5.jpeg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-1.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-2.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-3.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-4.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-5.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sergipe/sergipe-1.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sergipe/sergipe-2.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sergipe/sergipe-3.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-1.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-2.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-3.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-4.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-5.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-6.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-7.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-8.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-9.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-10.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-11.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-12.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-13.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-14.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-15.jpg"  alt="Image 1" class="image" onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
             </div>
-            <h1>First card</h1>
-            <p>Área 1</p>
         </div>
-        <div class="card" data-target="#section2">
-            <div class="card-image">
-                <img src="paisagem-2.jpg" alt="">
+        <div class="right-panel">
+            <div class="text-and-button">
+                <h1>
+                    Mais uma<br>
+                    <span class="highlight" onclick="scrollToSection('games-before')" id="pessoa">Pessoa</span>
+                </h1>
+               
             </div>
-            <h1>Second card</h1>
-            <p>Área 2</p>
         </div>
-        <div class="card" data-target="#section3">
-            <div class="card-image">
-                <img src="paisagem-2.jpg" alt="">
-            </div>
-            <h1>Third card</h1>
-            <p>Área 3</p>
+    </div>
+    <section id="games-before" class="section">
+        <div class="question-area">
+            <h1 class="typing-effect">Olá Pessoa, eu soube que é seu aniversário hoje. Correto?</h1>
         </div>
-    </main>
-
-    <section id="section1" class="hidden-section">
-        <div class="grid-container">
-            <!-- Grid Card 1 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-1.jpg" alt="Image 1">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 1 Title</h1>
-                        <p>Description of Image 1.</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Grid Card 2 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-2.jpg" alt="Image 2">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 2 Title</h1>
-                        <p>Description of Image 2.</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Grid Card 3 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-1.jpg" alt="Image 3">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 3 Title</h1>
-                        <p>Description of Image 3.</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Grid Card 4 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-2.jpg" alt="Image 4">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 4 Title</h1>
-                        <p>Description of Image 4.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="answer-area">
+            <button onclick="scrollToSection('congratulations-previous')">SIM</button>
+            <button onclick="scrollToSection('landing-page')">NÃO</button>
         </div>
     </section>
-
-    <section id="section2" class="hidden-section">
-        <div class="grid-container">
-            <!-- Grid Card 1 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-1.jpg" alt="Image 1">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 1 Title</h1>
-                        <p>Description of Image 1.</p>
-                    </div>
-                </div>
-            </div>
     
-            <!-- Grid Card 2 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-2.jpg" alt="Image 2">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 2 Title</h1>
-                        <p>Description of Image 2.</p>
-                    </div>
-                </div>
+    <div id="congratulations-previous" class="section">
+        <h1>Bom, nesse caso...</h1>
+    </div>
+    </div>
+    <div id="congratulations" class="section">
+        <h1 class="countdown">10</h1>
+        <div id="congrats">
+            <h1 class="congratulations-slide">PARABÉNNNNNNNNNS🥳🎉</h1>
+            <div class="pop-out-image">
+                <img src="/assets/images/general/child-1.jpg" alt="vitoria bem novinha e fofinha">
             </div>
-    
-            <!-- Grid Card 3 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-1.jpg" alt="Image 3">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 3 Title</h1>
-                        <p>Description of Image 3.</p>
-                    </div>
-                </div>
+            <div class="spin-image">
+                <img src="assets/images/pets/pretinha.jpeg" alt="pretinha sorrindo">
+            </div>
+            <div class="spin-image">
+                <img src="assets/images/pets/amy.jpeg" alt="amy sorrindo">
             </div>
         </div>
-    </section>
-    <section id="section3" class="hidden-section">
-        <div class="grid-container">
-            <!-- Grid Card 1 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-1.jpg" alt="Image 1">
+        <div class="flex-column">
+            <h1 class="hidden" id="toBeDisplayedOne">Ok, agora vamos começar pra valer...rs</h1>
+            <h2 class="hidden" id="toBeDisplayedThree">Você vai passar por uma bateria de questões, para cada questão você receberá uma parte do código. Me mande uma mensagem no whatsapp com o código final</h2>
+            <p class="hidden" id="toBeDisplayedTwo">Clique <a href="#games"  class="clickable" onclick="startTimer()">aqui</a> para concorrer ao seu presente de aniversário</p>
+        </div>
+    </div>
+    <section id="games">
+        <div id="games-container">
+            <!-- Memory game section -->
+            <div class="memory-game">
+                <div class="memory-card" data-framework="carnaval-1">
+                    <img class="front-face" src="/assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
+                    <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="carnaval-1">
+                      <img class="front-face" src="/assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
                     </div>
-                    <div class="grid-card-back">
-                        <h1>Image 1 Title</h1>
-                        <p>Description of Image 1.</p>
-                    </div>
-                </div>
+                  <div class="memory-card" data-framework="carnaval-2">
+                      <img class="front-face" src="/assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="carnaval-2">
+                      <img class="front-face" src="/assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="carnaval-3">
+                      <img class="front-face" src="/assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="carnaval-3">
+                      <img class="front-face" src="/assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="bonito-1">
+                      <img class="front-face" src="/assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="bonito-1">
+                      <img class="front-face" src="/assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="bonito-2">
+                      <img class="front-face" src="/assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="bonito-2">
+                      <img class="front-face" src="/assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="bonito-3">
+                      <img class="front-face" src="/assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
+                  <div class="memory-card" data-framework="bonito-3">
+                      <img class="front-face" src="/assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
+                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                  </div>
             </div>
     
-            <!-- Grid Card 2 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-2.jpg" alt="Image 2">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 2 Title</h1>
-                        <p>Description of Image 2.</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Grid Card 3 -->
-            <div class="grid-card">
-                <div class="grid-card-inner">
-                    <div class="grid-card-front">
-                        <img src="paisagem-1.jpg" alt="Image 3">
-                    </div>
-                    <div class="grid-card-back">
-                        <h1>Image 3 Title</h1>
-                        <p>Description of Image 3.</p>
-                    </div>
-                </div>
+            <!-- Completion message -->
+            <div id="completion-message" class="hidden">
+                <div class="message"></div>
             </div>
         </div>
+        <!-- Typing speed game section -->
+        <section id="typing-speed-game" class="typing-speed-game">
+            <h2>Ok...agora vamos para um jogo de velocidade</h2>
+            <p>São 5 frases diferentes, anote a soma dos resultados.</p>
+            <div class="typing-container">
+                <p id="text-to-type">This is the text that the user needs to type.</p>
+                <textarea id="user-input" placeholder="Start typing here..."></textarea>
+                <div id="typing-info">
+                    <p>Time: <span id="timer">0:00</span></p>
+                    <p id="typing-speed">Typing Speed: <span id="words-per-minute">0</span> WPM</p>
+                </div>
+                <button id="next-text">MAIS UMA</button>
+            </div>
+        </section>
+        <section id="animal-click-game">
+            <h2 id="animal-name">Click on the animal!</h2>
+            <div id="game-container">
+              <img src="assets/images/pets/amy.jpeg" class="animal-image" id="amy" alt="amy">
+              <img src="assets/images/pets/maggie.jpeg" class="animal-image" id="maggie" alt="maggie">
+              <img src="assets/images/pets/nala.jpeg" class="animal-image" id="nala" alt="nala">
+              <img src="assets/images/pets/pretinha.jpeg" class="animal-image" id="pretinha" alt="pretinha">
+            </div>
+            <div id="score-board">
+              <p>Score: <span id="score">0</span></p>
+              <p>Attempts Left: <span id="attempts">10</span></p>
+            </div>
+        </section>
+              
     </section>
     
-    <section id="games" class="games-sction">
-        <header>
-            <h1>Jogos</h1>
-            <p>Enjoy fun games below!</p>
-        </header>
     
-        <div class="memory-game">
-            <div class="memory-card" data-framework="aurelia">
-              <img class="front-face" src="paisagem-1.jpg" alt="Aurelia" />
-              <img class="back-face" src="" alt="JS Badge" />
-            </div>
-            <div class="memory-card" data-framework="aurelia">
-                <img class="front-face" src="paisagem-1.jpg" alt="Aurelia" />
-                <img class="back-face" src="" alt="JS Badge" />
-            </div>
-        </div>
-    </section>
-    
-
 
     <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,89 +1,379 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll('.card');
+// Global variables
+const cards = document.querySelectorAll('.memory-card');
+let isGameCompleted = false;
 
-    function handleCardClick(event) {
-        const targetSelector = event.currentTarget.getAttribute('data-target');
-        const targetSection = document.querySelector(targetSelector);
 
-         const isVisible = targetSection.style.display === 'block';
-
-        document.querySelectorAll('.hidden-section').forEach(section => {
-            section.style.display = 'none';
-        });
-
-        if (!isVisible) {
-            targetSection.style.display = 'block';
-        } else {
-            targetSection.style.display = 'none';
-        }
-    }
-
-    cards.forEach(card => {
-        card.addEventListener('click', handleCardClick);
-    });
+// Random images on load
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.image-grid');
+  const images = Array.from(container.querySelectorAll('.image-wrapper'));
+  
+  // Shuffle the images array
+  const shuffledImages = shuffleArray(images);
+  
+  // Clear the container
+  container.innerHTML = '';
+  
+  // Append shuffled images
+  shuffledImages.forEach(image => {
+      container.appendChild(image);
+  });
 });
 
-// memory game
-const cards = document.querySelectorAll('.memory-card');
+function shuffleArray(array) {
+  let currentIndex = array.length, randomIndex;
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+  // While there remain elements to shuffle
+  while (currentIndex !== 0) {
 
-function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+      // Pick a remaining element
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
 
-  this.classList.add('flip');
-
-  if (!hasFlippedCard) {
-    // first click
-    hasFlippedCard = true;
-    firstCard = this;
-
-    return;
+      // Swap it with the current element
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
   }
 
-  // second click
-  secondCard = this;
-
-  checkForMatch();
+  return array;
 }
 
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
-  isMatch ? disableCards() : unflipCards();
+// Scroll to section
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
+// Section GAMES
+document.addEventListener('DOMContentLoaded', () => {
+  const typingEffect = document.querySelector('.typing-effect');
+  const answerArea = document.querySelector('.answer-area');
+  
+  // Get the computed style of the typing effect to determine animation duration
+  const animationDuration = window.getComputedStyle(typingEffect).animationDuration;
 
-  resetBoard();
-}
+  // Convert the duration to milliseconds (CSS durations are in seconds)
+  const durationInMs = parseFloat(animationDuration) * 1000;
 
-function unflipCards() {
-  lockBoard = true;
-
+  // Add a delay to the appearance of the answer area
   setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
+    answerArea.classList.add('show');
+  }, durationInMs);
+});
 
+document.addEventListener('DOMContentLoaded', () => {
+  const image = document.querySelector('.pop-out-image img');
+  const container = document.getElementById('congratulations');
+
+  function setRandomPosition() {
+    // Get the container's dimensions
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+
+    // Generate random positions within the container's boundaries
+    const randomTop = Math.random() * (containerHeight - image.offsetHeight);
+    const randomLeft = Math.random() * (containerWidth - image.offsetWidth);
+
+    // Apply the random positions
+    image.style.top = `${randomTop}px`;
+    image.style.left = `${randomLeft}px`;
+  }
+
+  // Set an initial random position on page load
+  setRandomPosition();
+
+  // Update the position every 1 seconds
+  setInterval(() => {
+    setRandomPosition();
+  }, 1000);
+});
+
+// SPIN
+document.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('.spin-image');
+  
+  // Function to set the position of an image
+  function setPosition(image, top, left) {
+    image.style.top = `${top}%`;
+    image.style.left = `${left}%`;
+  }
+
+  // Example: Setting positions for multiple images
+  setPosition(images[0], 20, 30); // First image at 20% from top and 30% from left
+  setPosition(images[1], 50, 60); // Second image at 50% from top and 60% from left
+  
+  // Add more positions as needed
+});
+
+// Countdown timer
+document.addEventListener('DOMContentLoaded', () => {
+  const countdownElement = document.querySelector('.countdown');
+  const typingEffectElement = document.querySelector('#toBeDisplayedOne');
+  const typingEffectElementTthree = document.querySelector("#toBeDisplayedThree");
+  const typingEffectElementTwo = document.querySelector("#toBeDisplayedTwo");
+  const congratsElement = document.querySelector('#congrats');
+  const initialCountdown = 10; // Starting number for the countdown
+
+  function startCountdown() {
+    let countdown = initialCountdown;
+    const intervalId = setInterval(() => {
+      countdownElement.textContent = countdown;
+      countdown--;
+
+      if (countdown < 0) {
+        clearInterval(intervalId);
+        countdownElement.classList.add('hidden'); // Hide the countdown
+        typingEffectElement.classList.remove('hidden'); // Show the typing effect text
+        typingEffectElementTwo.classList.remove('hidden');
+        typingEffectElementTthree.classList.remove('hidden');
+        congratsElement.classList.add('hidden');
+      }
+    }, 1000); // Update every second
+  }
+
+  startCountdown();
+});
+
+// MEMORY GAME
+document.addEventListener('DOMContentLoaded', () => {
+  let hasFlippedCard = false;
+  let lockBoard = false;
+  let firstCard, secondCard;
+
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add('flip');
+
+    if (!hasFlippedCard) {
+      // first click
+      hasFlippedCard = true;
+      firstCard = this;
+      return;
+    }
+
+    // second click
+    secondCard = this;
+    checkForMatch();
+  }
+
+  function checkForMatch() {
+    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+    isMatch ? disableCards() : unflipCards();
+  }
+
+  function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
     resetBoard();
-  }, 1500);
+  }
+
+  function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+      firstCard.classList.remove('flip');
+      secondCard.classList.remove('flip');
+      resetBoard();
+    }, 1500);
+  }
+
+  function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+  }
+
+  (function shuffle() {
+    cards.forEach(card => {
+      let randomPos = Math.floor(Math.random() * 12);
+      card.style.order = randomPos;
+    });
+  })();
+
+  cards.forEach(card => card.addEventListener('click', flipCard));
+});
+
+
+// Timer for the memory game
+const counterBox = document.createElement('div');
+counterBox.className = 'counter-box';
+counterBox.innerHTML = `<div id="counter">0:00</div>`;
+document.querySelector('#games-container').appendChild(counterBox);
+
+let startTime, timerInterval;
+
+function startTimer() {
+  startTime = new Date();
+  timerInterval = setInterval(() => {
+    const elapsedTime = new Date() - startTime;
+    const seconds = Math.floor(elapsedTime / 1000);
+    const minutes = Math.floor(seconds / 60);
+    document.getElementById('counter').textContent = `${minutes}:${seconds % 60 < 10 ? '0' : ''}${seconds % 60}`;
+  }, 1000);
 }
 
-function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
+function stopTimer() {
+  clearInterval(timerInterval);
 }
 
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos;
+function showCompletionMessage() {
+  const completionMessage = document.getElementById('completion-message');
+  completionMessage.style.display = 'block';
+  completionMessage.querySelector('.message').textContent = `Anote quanto tempo você levou: ${document.getElementById('counter').textContent}`;
+}
+
+
+
+// Add this logic to detect game completion
+function checkGameCompletion() {
+  // Replace this with your actual game completion check
+  const isGameCompleted = Array.from(cards).every(card => card.classList.contains('flip'));
+  if (isGameCompleted) {
+    stopTimer();
+    showCompletionMessage();
+  }
+}
+
+setInterval(checkGameCompletion, 1000); // Adjust as needed
+
+
+/* TYPING GAME */
+document.addEventListener('DOMContentLoaded', () => {
+  const textToTypeElement = document.getElementById('text-to-type');
+  const userInputElement = document.getElementById('user-input');
+  const timerElement = document.getElementById('timer');
+  const wordsPerMinuteElement = document.getElementById('words-per-minute');
+  const nextTextButton = document.getElementById('next-text');
+
+  const texts = [
+      "vamos vamos vamos vaaaamos vamos vamos, vamos vamos vamos vaaaaaamos vamos vamos!!!",
+      "To com fome to com fooooooome, to com fome to com fooooooooome",
+      "Permita que eu fale, não as minhas cicatrizes",
+      "This text will challenge your typing speed and accuracy.",
+      "Practice typing with different texts to improve your skills."
+  ];
+
+  let startTime;
+  let timerInterval;
+  let isTypingStarted = false;
+
+  function getRandomText() {
+      const randomIndex = Math.floor(Math.random() * texts.length);
+      return texts[randomIndex];
+  }
+
+  function startTimer() {
+      if (!isTypingStarted) {
+          startTime = new Date();
+          timerInterval = setInterval(updateTimer, 1000);
+          isTypingStarted = true;
+      }
+  }
+
+  function updateTimer() {
+      const elapsedTime = (new Date() - startTime) / 1000;
+      const minutes = Math.floor(elapsedTime / 60);
+      const seconds = Math.floor(elapsedTime % 60);
+      timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  }
+
+  function stopTimer() {
+      clearInterval(timerInterval);
+      isTypingStarted = false;
+      calculateTypingSpeed();
+  }
+
+  function calculateTypingSpeed() {
+      const elapsedTime = (new Date() - startTime) / 1000; // in seconds
+      const minutes = elapsedTime / 60;
+      const words = userInputElement.value.trim().split(/\s+/).length;
+      const wpm = Math.round(words / minutes);
+      wordsPerMinuteElement.textContent = wpm;
+  }
+
+  function initGame() {
+      const randomText = getRandomText();
+      textToTypeElement.textContent = randomText;
+      userInputElement.value = ''; // Clear the input field
+      userInputElement.style.borderColor = '#9b59b6'; // Reset the border color
+      timerElement.textContent = '0:00'; // Reset the timer display
+      wordsPerMinuteElement.textContent = '0'; // Reset the WPM display
+  }
+
+  userInputElement.addEventListener('input', () => {
+      startTimer();
+      const typedText = userInputElement.value;
+      const originalText = textToTypeElement.textContent;
+      if (typedText === originalText) {
+          userInputElement.style.borderColor = 'green'; // Change border to green
+          stopTimer();
+      }
   });
-})();
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+  nextTextButton.addEventListener('click', initGame);
+
+  // Initialize the game on page load
+  initGame();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const images = ['amy', 'maggie', 'nala', 'pretinha'];
+  const animalNames = ['amy', 'maggie', 'nala', 'pretinha']; // Replace with actual animal names
+  let score = 0;
+  let attempts = 10;
+  let currentAnimal;
+
+  const animalNameElement = document.getElementById('animal-name');
+  const scoreElement = document.getElementById('score');
+  const attemptsElement = document.getElementById('attempts');
+  const gameContainer = document.getElementById('game-container');
+
+  function startGame() {
+    if (attempts <= 0) {
+      alert('Game Over! Final Score: ' + score);
+      return;
+    }
+
+    // Hide all images initially
+    document.querySelectorAll('.animal-image').forEach(img => img.style.display = 'none');
+
+    // Randomly pick an animal and display its image
+    currentAnimal = images[Math.floor(Math.random() * images.length)];
+    animalNameElement.textContent = `Clique em ${animalNames[images.indexOf(currentAnimal)]}!`;
+
+    // Display images randomly in different positions
+    images.forEach(animal => {
+      const img = document.getElementById(animal);
+      img.style.top = `${Math.random() * (gameContainer.offsetHeight - 100)}px`;
+      img.style.left = `${Math.random() * (gameContainer.offsetWidth - 100)}px`;
+      img.style.display = 'block';
+    });
+
+    // Set a timeout to hide the images after 1 second
+    setTimeout(() => {
+      document.querySelectorAll('.animal-image').forEach(img => img.style.display = 'none');
+    }, 2500);
+
+    // Set a timeout for the next round
+    setTimeout(startGame, 2500);
+  }
+
+  function handleClick(event) {
+    if (event.target.classList.contains('animal-image')) {
+      if (event.target.id === currentAnimal) {
+        score++;
+      } else {
+        score--;
+      }
+      scoreElement.textContent = score;
+      attempts--;
+      attemptsElement.textContent = attempts;
+    }
+  }
+
+  gameContainer.addEventListener('click', handleClick);
+  startGame();
+});
