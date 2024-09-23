@@ -43,6 +43,11 @@ function scrollToSection(sectionId) {
   if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
   }
+
+   // Start the countdown when scrolling to the "congratulations" section after clicking "clique aqui"
+   if (sectionId === 'congratulations') {
+    startCountdown();
+}
 }
 
 // Section GAMES
@@ -106,8 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add more positions as needed
 });
 
-// Countdown timer
-document.addEventListener('DOMContentLoaded', () => {
+function startCountdown() {
   const countdownElement = document.querySelector('.countdown');
   const typingEffectElement = document.querySelector('#toBeDisplayedOne');
   const typingEffectElementTthree = document.querySelector("#toBeDisplayedThree");
@@ -115,25 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const congratsElement = document.querySelector('#congrats');
   const initialCountdown = 10; // Starting number for the countdown
 
-  function startCountdown() {
-    let countdown = initialCountdown;
-    const intervalId = setInterval(() => {
-      countdownElement.textContent = countdown;
-      countdown--;
+  let countdown = initialCountdown;
+  const intervalId = setInterval(() => {
+    countdownElement.textContent = countdown;
+    countdown--;
 
-      if (countdown < 0) {
-        clearInterval(intervalId);
-        countdownElement.classList.add('hidden'); // Hide the countdown
-        typingEffectElement.classList.remove('hidden'); // Show the typing effect text
-        typingEffectElementTwo.classList.remove('hidden');
-        typingEffectElementTthree.classList.remove('hidden');
-        congratsElement.classList.add('hidden');
-      }
-    }, 1000); // Update every second
-  }
-
-  startCountdown();
-});
+    if (countdown < 0) {
+      clearInterval(intervalId);
+      countdownElement.classList.add('hidden'); // Hide the countdown
+      typingEffectElement.classList.remove('hidden'); // Show the typing effect text
+      typingEffectElementTwo.classList.remove('hidden');
+      typingEffectElementTthree.classList.remove('hidden');
+      congratsElement.classList.add('hidden');
+    }
+  }, 1000); // Update every second
+}
 
 // MEMORY GAME
 document.addEventListener('DOMContentLoaded', () => {
@@ -249,10 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const texts = [
       "vamos vamos vamos vaaaamos vamos vamos, vamos vamos vamos vaaaaaamos vamos vamos!!!",
-      "To com fome to com fooooooome, to com fome to com fooooooooome",
-      "Permita que eu fale, não as minhas cicatrizes",
-      "This text will challenge your typing speed and accuracy.",
-      "Practice typing with different texts to improve your skills."
+      "To com fome to com fooooooome, to com fome to com fooooooooome!",
+      "Casa suja, chão sujo. Chão sujo, casa suja.",
+      "Falador passa mal rapaz, falador passa mal.",
+      "Bagre branco, branco bagre.",
+      "Não confunda ornitorrinco com otorrinolaringologista, ornitorrinco com ornitologista, ornitologista com otorrinolaringologista, porque ornitorrinco é ornitorrinco, ornitologista é ornitologista, e otorrinolaringologista é otorrinolaringologista."
   ];
 
   let startTime;
@@ -376,4 +377,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
   gameContainer.addEventListener('click', handleClick);
   startGame();
+});
+
+
+
+// CONTROL GAMES SHOW
+// Get the current date in BRT time
+function getCurrentDateBRT() {
+  const currentDateUTC = new Date();
+  const currentDateBRT = new Date(currentDateUTC.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+  return currentDateBRT;
+}
+
+// Set the start date (replace with the actual start date you want, e.g., "2024-09-23")
+const startDate = new Date('2024-09-23T00:00:00');
+const currentDateBRT = getCurrentDateBRT();
+const timeDiff = currentDateBRT - startDate;
+const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+// List of game sections (in order of appearance)
+const gameSections = ['memory-game', 'typing-speed-game', 'animal-click-game', 'color-pattern-game'];
+
+// Hide all sections initially
+document.querySelectorAll('.game-section').forEach(section => {
+  section.style.display = 'none';
+});
+
+// Show the correct section based on how many days have passed
+if (daysPassed >= 0 && daysPassed < gameSections.length) {
+  const sectionToShow = document.getElementById(gameSections[daysPassed]);
+  sectionToShow.style.display = 'block';
+} 
+
+
+
+/* COLOR PATTERN */
+const colorButtons = {
+  red: document.getElementById('red'),
+  blue: document.getElementById('blue'),
+  green: document.getElementById('green'),
+  yellow: document.getElementById('yellow')
+};
+
+let colorSequence = [];
+let userSequence = [];
+let level = 1;
+const levelDisplay = document.getElementById('level-number');
+const messageArea = document.getElementById('message-area');
+
+function generateRandomColor() {
+  const colors = ['red', 'blue', 'green', 'yellow'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function showSequence() {
+  userSequence = [];
+  let index = 0;
+
+  const interval = setInterval(() => {
+      if (index < colorSequence.length) {
+          const color = colorSequence[index];
+          colorButtons[color].classList.add('flash');
+          
+          setTimeout(() => {
+              colorButtons[color].classList.remove('flash');
+          }, 500);  // Flash for half a second
+
+          index++;
+      } else {
+          clearInterval(interval);
+      }
+  }, 1000);  // Wait 1 second between each color flash
+}
+
+function startNewLevel() {
+  colorSequence.push(generateRandomColor());
+  levelDisplay.textContent = level;
+  showSequence();
+}
+
+function handleUserInput(color) {
+  userSequence.push(color);
+  const currentIndex = userSequence.length - 1;
+
+  if (userSequence[currentIndex] !== colorSequence[currentIndex]) {
+      messageArea.textContent = "Game Over! You reached Level " + level;
+      messageArea.classList.add('game-over');  // Add the red color class for game over message
+      resetGame();
+      return;
+  }
+
+  if (userSequence.length === colorSequence.length) {
+      messageArea.textContent = "Correct! Moving to Level " + (level + 1);
+      messageArea.classList.remove('game-over');  // Remove red color for correct message
+      level++;
+      setTimeout(startNewLevel, 1000);
+  }
+}
+
+function resetGame() {
+  colorSequence = [];
+  userSequence = [];
+  level = 1;
+}
+
+document.getElementById('start-game').addEventListener('click', function() {
+  messageArea.textContent = '';
+  messageArea.classList.remove('game-over');  // Reset the message color
+  resetGame();
+  startNewLevel();
+});
+
+Object.keys(colorButtons).forEach(color => {
+  colorButtons[color].addEventListener('click', function() {
+      if (colorSequence.length) {
+          handleUserInput(color);
+      }
+  });
 });

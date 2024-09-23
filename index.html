@@ -216,7 +216,7 @@
     </div>
     <section id="games-before" class="section">
         <div class="question-area">
-            <h1 class="typing-effect">Olá Pessoa, eu soube que é seu aniversário hoje. Correto?</h1>
+            <h1 class="typing-effect">Olá Pessoa, soube que essa semana é a do seu aniversário. Estou certo?</h1>
         </div>
         <div class="answer-area">
             <button onclick="scrollToSection('congratulations-previous')">SIM</button>
@@ -226,6 +226,7 @@
     
     <div id="congratulations-previous" class="section">
         <h1>Bom, nesse caso...</h1>
+        <p onclick="scrollToSection('congratulations')">clique aqui</p>
     </div>
     </div>
     <div id="congratulations" class="section">
@@ -244,97 +245,118 @@
         </div>
         <div class="flex-column">
             <h1 class="hidden" id="toBeDisplayedOne">Ok, agora vamos começar pra valer...rs</h1>
-            <h2 class="hidden" id="toBeDisplayedThree">Você vai passar por uma bateria de questões, para cada questão você receberá uma parte do código. Me mande uma mensagem no whatsapp com o código final</h2>
+            <h2 class="hidden" id="toBeDisplayedThree">Você tem um compromisso diário. De hoje até dia 24 de outubro de 2024, entre aqui todo dia para um novo jogo. Me reporte no whatsapp seu resultado diário para que eu calcule seu presente.</h2>
+            
             <p class="hidden" id="toBeDisplayedTwo">Clique <a href="#games"  class="clickable" onclick="startTimer()">aqui</a> para concorrer ao seu presente de aniversário</p>
         </div>
     </div>
     <section id="games">
         <div id="games-container">
             <!-- Memory game section -->
-            <div class="memory-game">
-                <div class="memory-card" data-framework="carnaval-1">
-                    <img class="front-face" src="/assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
-                    <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="carnaval-1">
-                      <img class="front-face" src="/assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                    </div>
-                  <div class="memory-card" data-framework="carnaval-2">
-                      <img class="front-face" src="/assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="carnaval-2">
-                      <img class="front-face" src="/assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="carnaval-3">
-                      <img class="front-face" src="/assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="carnaval-3">
-                      <img class="front-face" src="/assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="bonito-1">
-                      <img class="front-face" src="/assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="bonito-1">
-                      <img class="front-face" src="/assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="bonito-2">
-                      <img class="front-face" src="/assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="bonito-2">
-                      <img class="front-face" src="/assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="bonito-3">
-                      <img class="front-face" src="/assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-                  <div class="memory-card" data-framework="bonito-3">
-                      <img class="front-face" src="/assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
-                      <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
-                  </div>
-            </div>
+             <div class="game-section" id="memory-game">
+                <div class="memory-game">
+                    <div class="memory-card" data-framework="carnaval-1">
+                        <img class="front-face" src="/assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
+                        <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="carnaval-1">
+                          <img class="front-face" src="/assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                        </div>
+                      <div class="memory-card" data-framework="carnaval-2">
+                          <img class="front-face" src="/assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="carnaval-2">
+                          <img class="front-face" src="/assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="carnaval-3">
+                          <img class="front-face" src="/assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="carnaval-3">
+                          <img class="front-face" src="/assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="bonito-1">
+                          <img class="front-face" src="/assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="bonito-1">
+                          <img class="front-face" src="/assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="bonito-2">
+                          <img class="front-face" src="/assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="bonito-2">
+                          <img class="front-face" src="/assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="bonito-3">
+                          <img class="front-face" src="/assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                      <div class="memory-card" data-framework="bonito-3">
+                          <img class="front-face" src="/assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
+                          <img class="back-face" src="/assets/images/pets/amy.jpeg" alt="amy" />
+                      </div>
+                </div>
+                    <!-- Completion message -->
+                <div id="completion-message" class="hidden">
+                    <div class="message"></div>
+                </div>
+             </div>
+            
     
-            <!-- Completion message -->
-            <div id="completion-message" class="hidden">
-                <div class="message"></div>
-            </div>
+           
         </div>
         <!-- Typing speed game section -->
-        <section id="typing-speed-game" class="typing-speed-game">
-            <h2>Ok...agora vamos para um jogo de velocidade</h2>
-            <p>São 5 frases diferentes, anote a soma dos resultados.</p>
-            <div class="typing-container">
-                <p id="text-to-type">This is the text that the user needs to type.</p>
-                <textarea id="user-input" placeholder="Start typing here..."></textarea>
-                <div id="typing-info">
-                    <p>Time: <span id="timer">0:00</span></p>
-                    <p id="typing-speed">Typing Speed: <span id="words-per-minute">0</span> WPM</p>
+         <div class="game-section" id="typing-speed-game">
+            <section class="typing-speed-game">
+                <h2>Ok...agora vamos para um jogo de velocidade</h2>
+                <p>São 5 frases diferentes, anote a soma dos resultados.</p>
+                <div class="typing-container">
+                    <p id="text-to-type">This is the text that the user needs to type.</p>
+                    <textarea id="user-input" placeholder="Start typing here..."></textarea>
+                    <div id="typing-info">
+                        <p>Time: <span id="timer">0:00</span></p>
+                        <p id="typing-speed">Typing Speed: <span id="words-per-minute">0</span> WPM</p>
+                    </div>
+                    <button id="next-text">MAIS UMA</button>
                 </div>
-                <button id="next-text">MAIS UMA</button>
+            </section>
+         </div>
+         <div class="game-section" id="animal-click-game">
+            <section>
+                <h2 id="animal-name">Click on the animal!</h2>
+                <div id="game-container">
+                  <img src="assets/images/pets/amy.jpeg" class="animal-image" id="amy" alt="amy">
+                  <img src="assets/images/pets/maggie.jpeg" class="animal-image" id="maggie" alt="maggie">
+                  <img src="assets/images/pets/nala.jpeg" class="animal-image" id="nala" alt="nala">
+                  <img src="assets/images/pets/pretinha.jpeg" class="animal-image" id="pretinha" alt="pretinha">
+                </div>
+                <div id="score-board">
+                  <p>Score: <span id="score">0</span></p>
+                  <p>Attempts Left: <span id="attempts">10</span></p>
+                </div>
+            </section>
+         </div>
+         <div id="color-pattern-game" class="game-section">
+            <h2>Color Pattern Memory Game</h2>
+            <p>Memorize the pattern and repeat it by clicking the buttons in the correct order!</p>
+            <div id="color-grid">
+                <button class="color-button" id="red"></button>
+                <button class="color-button" id="blue"></button>
+                <button class="color-button" id="green"></button>
+                <button class="color-button" id="yellow"></button>
             </div>
-        </section>
-        <section id="animal-click-game">
-            <h2 id="animal-name">Click on the animal!</h2>
-            <div id="game-container">
-              <img src="assets/images/pets/amy.jpeg" class="animal-image" id="amy" alt="amy">
-              <img src="assets/images/pets/maggie.jpeg" class="animal-image" id="maggie" alt="maggie">
-              <img src="assets/images/pets/nala.jpeg" class="animal-image" id="nala" alt="nala">
-              <img src="assets/images/pets/pretinha.jpeg" class="animal-image" id="pretinha" alt="pretinha">
-            </div>
-            <div id="score-board">
-              <p>Score: <span id="score">0</span></p>
-              <p>Attempts Left: <span id="attempts">10</span></p>
-            </div>
-        </section>
-              
+            <div id="message-area"></div>
+            <button id="start-game">Start Game</button>
+            <div id="current-level">Level: <span id="level-number">1</span></div>
+        </div>
     </section>
     
     
