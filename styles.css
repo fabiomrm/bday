@@ -1,4 +1,23 @@
 /* styles.css */
+/* Countdown container */
+.countdown-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Make sure it covers everything */
+  font-size: 5rem;
+}
+
+.hidden {
+  display: none;
+}
 
 body {
     margin: 0;
