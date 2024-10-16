@@ -2,6 +2,40 @@
 const cards = document.querySelectorAll('.memory-card');
 let isGameCompleted = false;
 
+// BEGIN COUNTDOWN
+document.addEventListener("DOMContentLoaded", function() {
+  // Set the target date and time for October 20th
+  const targetDate = new Date("October 20, 2024 00:00:00").getTime();
+
+  // Update the countdown every second
+  const countdownInterval = setInterval(function() {
+      // Get the current date and time
+      const now = new Date().getTime();
+
+      // Calculate the time difference between now and the target date
+      const timeDifference = targetDate - now;
+
+      // If the time difference is less than or equal to zero, clear the interval and show the landing page
+      if (timeDifference <= 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('countdown-screen').classList.add('hidden');
+          document.getElementById('landing-page').classList.remove('hidden');
+          return;
+      }
+
+      // Calculate the total remaining hours, minutes, and seconds
+      const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      // Update the countdown text in the format: "HH:MM:SS"
+      document.getElementById('countdown-timer').textContent =
+          hours.toString().padStart(2, '0') + ":" +
+          minutes.toString().padStart(2, '0') + ":" +
+          seconds.toString().padStart(2, '0');
+  }, 1000); // 1 second intervals
+});
+
 
 // Random images on load
 document.addEventListener('DOMContentLoaded', () => {
