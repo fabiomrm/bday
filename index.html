@@ -1,23 +1,413 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Countdown screen -->
-    <div id="countdown-screen" class="countdown-container">
-        <h1 id="countdown-timer"></h1>
-    </div>
 
-    <!-- Existing content -->
+<body>
     <div class="container" id="landing-page">
-        <!-- Your existing landing page content -->
+        <div class="left-panel">
+            <div class="image-grid">
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-orange.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay">Text for Image 1</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-2.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay">Text for Image 1</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-1.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay">Text for Image 1</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-3.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-4.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/work/work-5.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/carnaval/carnaval-1.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/carnaval/carnaval-2.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/carnaval/carnaval-3.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-1.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-2.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-4.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-5.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-6.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/bonito/bonito-7.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/brasilia/brasilia-1.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/brasilia/brasilia-3.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/portugal/portugal-1.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/portugal/portugal-2.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/portugal/portugal-3.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-1.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-2.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-3.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-4.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/salvador/salvador-5.jpeg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-1.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-2.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-3.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-4.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sao-paulo/sp-5.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sergipe/sergipe-1.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sergipe/sergipe-2.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/trips/sergipe/sergipe-3.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-1.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-2.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-3.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-4.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-5.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-6.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-7.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-8.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-9.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-10.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-11.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-12.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-13.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-14.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="assets/images/not-alone/not-alone-15.jpg" alt="Image 1" class="image"
+                        onclick="scrollToSection('sectionWork')">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="text-and-button">
+                <h1>
+                    Mais uma<br>
+                    <span class="highlight" onclick="scrollToSection('games-before')" id="pessoa">Pessoa</span>
+                </h1>
+
+            </div>
+        </div>
     </div>
-    
-    
+    <section id="games-before" class="section">
+        <div class="question-area">
+            <h1 class="typing-effect">Olá Pessoa, soube que essa semana é a do seu aniversário. Estou certo?</h1>
+        </div>
+        <div class="answer-area">
+            <button onclick="checkDateAndScroll('congratulations-previous')">SIM</button>
+            <button onclick="scrollToSection('landing-page')">NÃO</button>
+        </div>
+    </section>
+
+    <div id="congratulations-previous" class="section" style="display: none;">
+        <h1>Bom, nesse caso...</h1>
+        <p onclick="scrollToSection('congratulations')">clique aqui</p>
+    </div>
+    </div>
+    <div id="congratulations" class="section" style="display: none;">
+        <h1 class="countdown">10</h1>
+        <div id="congrats">
+            <h1 class="congratulations-slide">PARABÉNNNNNNNNNS🥳🎉</h1>
+            <div class="pop-out-image">
+                <img src="assets/images/general/child-1.jpg" alt="vitoria bem novinha e fofinha">
+            </div>
+            <div class="spin-image">
+                <img src="assets/images/pets/pretinha.jpeg" alt="pretinha sorrindo">
+            </div>
+            <div class="spin-image">
+                <img src="assets/images/pets/amy.jpeg" alt="amy sorrindo">
+            </div>
+        </div>
+        <div class="flex-column">
+            <h1 class="hidden" id="toBeDisplayedOne">Ok, agora vamos começar pra valer...rs</h1>
+            <h2 class="hidden" id="toBeDisplayedThree">Você tem um compromisso diário. De hoje até dia 24 de outubro de
+                2024, entre aqui todo dia para um novo jogo. Me reporte no whatsapp seu resultado diário para que eu
+                calcule seu presente.</h2>
+
+            <p class="hidden" id="toBeDisplayedTwo">Clique <a href="#games" class="clickable"
+                    onclick="startTimer()">aqui</a> para concorrer ao seu presente de aniversário</p>
+        </div>
+    </div>
+    <section id="games">
+        <div id="games-container">
+            <!-- Memory game section -->
+            <div class="game-section" id="memory-game">
+                <div class="memory-game">
+                    <div class="memory-card" data-framework="carnaval-1">
+                        <img class="front-face" src="assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="carnaval-1">
+                        <img class="front-face" src="assets/images/carnaval/carnaval-1.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="carnaval-2">
+                        <img class="front-face" src="assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="carnaval-2">
+                        <img class="front-face" src="assets/images/carnaval/carnaval-2.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="carnaval-3">
+                        <img class="front-face" src="assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="carnaval-3">
+                        <img class="front-face" src="assets/images/carnaval/carnaval-3.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="bonito-1">
+                        <img class="front-face" src="assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="bonito-1">
+                        <img class="front-face" src="assets/images/trips/bonito/bonito-1.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="bonito-2">
+                        <img class="front-face" src="assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="bonito-2">
+                        <img class="front-face" src="assets/images/trips/bonito/bonito-2.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="bonito-3">
+                        <img class="front-face" src="assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                    <div class="memory-card" data-framework="bonito-3">
+                        <img class="front-face" src="assets/images/trips/bonito/bonito-3.jpg" alt="Aurelia" />
+                        <img class="back-face" src="assets/images/pets/amy.jpeg" alt="amy" />
+                    </div>
+                </div>
+                <!-- Completion message -->
+                <div id="completion-message" class="hidden">
+                    <div class="message"></div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Typing speed game section -->
+        <div class="game-section" id="typing-speed-game">
+            <section class="typing-speed-game">
+                <h2>Ok...agora vamos para um jogo de velocidade</h2>
+                <p>São 5 frases diferentes, anote a soma dos resultados.</p>
+                <div class="typing-container">
+                    <p id="text-to-type">This is the text that the user needs to type.</p>
+                    <textarea id="user-input" placeholder="Start typing here..."></textarea>
+                    <div id="typing-info">
+                        <p>Time: <span id="timer">0:00</span></p>
+                        <p id="typing-speed">Typing Speed: <span id="words-per-minute">0</span> WPM</p>
+                    </div>
+                    <button id="next-text">MAIS UMA</button>
+                </div>
+            </section>
+        </div>
+        <div class="game-section" id="animal-click-game">
+            <section>
+                <h2 id="animal-name">Click on the animal!</h2>
+                <div id="game-container">
+                    <img src="assets/images/pets/amy.jpeg" class="animal-image" id="amy" alt="amy">
+                    <img src="assets/images/pets/maggie.jpeg" class="animal-image" id="maggie" alt="maggie">
+                    <img src="assets/images/pets/nala.jpeg" class="animal-image" id="nala" alt="nala">
+                    <img src="assets/images/pets/pretinha.jpeg" class="animal-image" id="pretinha" alt="pretinha">
+                </div>
+                <div id="score-board">
+                    <p>Score: <span id="score">0</span></p>
+                    <p>Attempts Left: <span id="attempts">10</span></p>
+                </div>
+            </section>
+        </div>
+        <div id="color-pattern-game" class="game-section">
+            <h2>Color Pattern Memory Game</h2>
+            <p>Memorize the pattern and repeat it by clicking the buttons in the correct order!</p>
+            <div id="color-grid">
+                <button class="color-button" id="red"></button>
+                <button class="color-button" id="blue"></button>
+                <button class="color-button" id="green"></button>
+                <button class="color-button" id="yellow"></button>
+            </div>
+            <div id="message-area"></div>
+            <button id="start-game">Start Game</button>
+            <div id="current-level">Level: <span id="level-number">1</span></div>
+        </div>
+    </section>
+
+
+
     <script src="script.js"></script>
 </body>
+
 </html>
