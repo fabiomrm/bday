@@ -1,68 +1,9 @@
 /* styles.css */
-/* Countdown container */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
-/* Countdown container */
-#countdown-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black; /* Or any background color you prefer */
-  z-index: 9999; /* Ensures it is on top of other elements */
-  overflow: hidden; /* Prevents scrolling */
-}
-.countdown-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000; /* Adjust to your background color */
-    color: white;
-    text-align: center;
-    font-size: 5vw; /* Adjusts font size based on viewport width */
-}
-
-#countdown-timer {
-    font-size: 8vw; /* Ensures countdown text is large but responsive */
-}
-
-/* Container for landing page */
-.container {
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 1200px;
-    text-align: center;
-}
-
-/* Mobile Responsive adjustments */
-@media (max-width: 768px) {
-    .countdown-container {
-        height: 100vh; /* Ensures full viewport height on mobile */
-    }
-
-    #countdown-timer {
-        font-size: 12vw; /* Increase font size for small screens */
-    }
-
-    .container {
-        padding: 10px;
-    }
-}
-
-.hidden {
-  display: none;
-}
-
 body {
     margin: 0;
     padding: 0;
