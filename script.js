@@ -402,7 +402,7 @@ function getCurrentDateBRT() {
 }
 
 // Set the start date (replace with the actual start date you want, e.g., "2024-09-23")
-const startDate = new Date('2024-09-23T00:00:00');
+const startDate = new Date('2024-10-20T00:00:00');
 const currentDateBRT = getCurrentDateBRT();
 const timeDiff = currentDateBRT - startDate;
 const daysPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
