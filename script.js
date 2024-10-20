@@ -51,10 +51,11 @@ function shuffleArray(array) {
 // Scroll to section
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
+  console.log("aqui")
   if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
   }
-
+  
    // Start the countdown when scrolling to the "congratulations" section after clicking "clique aqui"
    if (sectionId === 'congratulations') {
     startCountdown();
